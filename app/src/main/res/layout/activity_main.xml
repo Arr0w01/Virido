@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="675dp"
+        android:layout_marginTop="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:backgroundTint="#FFFFFF"
+        app:fabCradleRoundedCornerRadius="20dp"
+        app:fabCradleVerticalOffset="1dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="15dp"
+            android:background="@color/transparent"
+            app:itemRippleColor="@color/theme"
+            android:visibility="visible"
+            app:itemTextAppearanceActive="@style/myNavigationDrawer"
+            app:itemTextAppearanceInactive="@style/myNavigationDrawer"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/bottom_nav_menu" >
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/CartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:soundEffectsEnabled="true"
+        app:backgroundTint="#4CAF50"
+        app:tint="@color/white"
+        android:textAlignment="viewStart"
+        android:scaleType="fitXY"
+        app:layout_anchor="@id/bottomAppBar"
+        app:srcCompat="@drawable/cart_white" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cartCountView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:cardBackgroundColor="@color/pink"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        android:visibility="gone"
+        app:layout_anchor="@id/CartButton"
+        app:layout_anchorGravity="top|center"
+        >
+        <TextView
+            android:id="@+id/cartCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
